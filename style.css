@@ -95,6 +95,7 @@ input[type=submit] {
 button{
     all: unset;
     height: 100%;
+    max-height: 3rem;
     width: 33%;
     text-align: center;
 }
