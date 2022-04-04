@@ -48,10 +48,12 @@ input[type=submit] {
     padding: .5rem;
     text-align: center;
 }
-.tasks-container h1{
+
+.tasks-container h1 {
     font-size: 2.5rem;
-    margin-bottom:4rem
+    margin-bottom: 4rem
 }
+
 .tasks-list {
     display: flex;
     flex-direction: column;
@@ -92,14 +94,21 @@ input[type=submit] {
     min-width: 90px;
     flex-wrap: wrap;
 }
-button{
+
+button {
     all: unset;
     height: 100%;
     max-height: 3rem;
     width: 33%;
     text-align: center;
 }
-button:hover{
+
+button:hover {
     background-color: black;
     color: white
+}
+
+.complete {
+    opacity: 0.6;
+    text-decoration: line-through;
 }
