@@ -60,14 +60,13 @@ function loadTodo() {
   let todoes = JSON.parse(localStorage.getItem('todo'));
   if (todoes) {
     todoes.forEach((i) => {
-      addTodo(i.task, i.styleStatuses);
+      addTodo(i.task, i.styleStatuses ,i.id);
     })
   }
 }
 
 function completeDeleteEdit(action) {
   todoDiv = action.parentElement.parentElement;
-  console.log(todoDiv);
   if (action.classList[0] == "done") {
     completeTodo(todoDiv);
   } else if (action.classList[0] == "delete") {
@@ -105,6 +104,7 @@ function completeTodo(div) {
 }
 
 function editTodo(div) {
+  let todoId = div.children[0].id;
   let li = div.children[0].innerText;
   let todoes = JSON.parse(localStorage.getItem("todo"));
 
