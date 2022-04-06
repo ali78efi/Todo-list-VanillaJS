@@ -117,3 +117,9 @@ button:hover {
 .editing {
     border: 2px solid red;
 }
+
+.fa-trash,
+.fa-pen,
+.fa-check {
+  pointer-events: none;
+}
