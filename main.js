@@ -1,12 +1,14 @@
 const list = document.querySelector('.tasks-list');
 const input = document.getElementById("todo-input");
 const form = document.querySelector('form');
+let count = findCount();
 
 form.addEventListener('submit', (e) => { // e= event
   e.preventDefault(); // prevent submit action from refreshing the page
   addTodo(input.value); //rendering task in the tasks list 
   saveTodo(input.value);
   input.value = ''; //clear input for the next todo 
+  count++;
 });
 
 window.addEventListener('DOMContentLoaded', (e) => { //load tasks from local storage and render them in page loading 
@@ -21,10 +23,10 @@ list.addEventListener('click', (e) => { //active todo buttons(trash check pen )
 
 
 
-function addTodo(todo, isComplete = " ") {
+function addTodo(todo, isComplete = " ", id=`task${count}`) {
   const todoDiv = document.createElement("div");
   todoDiv.innerHTML = `
-    <li contentEditable="false" >${todo}</li>
+    <li id="${id}" contentEditable="false" >${todo}</li>
     <div class="task-buttons">
       <button class="done">
         <i class="fas fa-check"></i>
@@ -45,7 +47,8 @@ function addTodo(todo, isComplete = " ") {
 function saveTodo(todo) {
   const todoObj = {
     task: todo,
-    styleStatuses: " "
+    styleStatuses: " ",
+    id: `task${count}`
   };
   let todoes = JSON.parse(localStorage.getItem('todo'));
   if (todoes == null) todoes = [];
@@ -83,7 +86,6 @@ function deleteTodo(div) {
 }
 
 function completeTodo(div) {
-
   //complete todo in local storage
   let li = div.children[0].innerText;
   let todoes = JSON.parse(localStorage.getItem("todo"));
@@ -111,14 +113,27 @@ function editTodo(div) {
     div.children[1].children[0].style.display = "inline-block";
     div.children[1].children[2].style.display = "inline-block";
 
+    todoes.forEach((item,index) => {
+      if (item.id == todoId) {
+        item.task = li;
+      }
+    })
+
   } else {
     div.children[0].contentEditable = "true";
+    div.children[0].focus();
     div.children[1].children[0].style.display = "none";
     div.children[1].children[2].style.display = "none";
   }
-
+  localStorage.setItem("todo", JSON.stringify(todoes));
   div.classList.toggle("editing");
+}
 
-
-
+function findCount() {
+  let c = 0;
+  let todoes = JSON.parse(localStorage.getItem('todo'));
+  if (todoes != null) {
+     c = todoes.length;
+  }
+  return c;
 }
