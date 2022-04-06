@@ -72,7 +72,7 @@ input[type=submit] {
     border-radius: .5rem;
     margin-bottom: 1.5rem;
     flex-wrap: wrap;
-
+    transition: all .3s 0.1s;
 }
 
 .todo li {
@@ -90,7 +90,6 @@ input[type=submit] {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    cursor: pointer;
     min-width: 90px;
     flex-wrap: wrap;
 }
@@ -101,6 +100,8 @@ button {
     max-height: 3rem;
     width: 33%;
     text-align: center;
+    cursor: pointer;
+
 }
 
 button:hover {
@@ -111,4 +112,8 @@ button:hover {
 .complete {
     opacity: 0.6;
     text-decoration: line-through;
+}
+
+.editing {
+    border: 2px solid red;
 }
