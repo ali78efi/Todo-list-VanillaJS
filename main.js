@@ -86,10 +86,10 @@ function deleteTodo(div) {
 
 function completeTodo(div) {
   //complete todo in local storage
-  let li = div.children[0].innerText;
+  let todoId = div.children[0].id;
   let todoes = JSON.parse(localStorage.getItem("todo"));
   todoes.forEach(i => {
-    if (Object.values(i)[0] == li) {
+    if (Object.values(i)[2] == todoId) {
       if (i.styleStatuses == "complete") {
         i.styleStatuses = " ";
       } else {
