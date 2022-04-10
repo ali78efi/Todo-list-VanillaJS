@@ -1,6 +1,7 @@
-const list = document.querySelector('.tasks-list');
+const list = document.querySelector('.tasks-list'); list.innerHTML = "";
 const input = document.getElementById("todo-input");
 const form = document.querySelector('form');
+const filter = document.querySelector('.filter-tasks');
 let count = findCount();
 
 form.addEventListener('submit', (e) => { // e= event
@@ -21,7 +22,7 @@ list.addEventListener('click', (e) => { //active todo buttons(trash check pen )
   completeDeleteEdit(action);
 })
 
-
+filter.addEventListener("click", filterTodo);
 
 function addTodo(todo, isComplete = " ", id=`task${count}`) {
   const todoDiv = document.createElement("div");
@@ -136,4 +137,30 @@ function findCount() {
      c = todoes.length;
   }
   return c;
+}
+
+function filterTodo(event) {
+  const tasks = list.childNodes;
+  console.log(tasks);
+  tasks.forEach((todo) => {
+    switch (event.target.value) {
+      case "all":
+        todo.style.display = "flex";
+        break;
+      case "completed":
+        if (todo.classList.contains("complete")) {
+          todo.style.display = "flex";
+        } else {
+          todo.style.display = "none";
+        }
+        break;
+      case "uncompleted":
+        if (todo.classList.contains("complete")) {
+          todo.style.display = "none";
+        } else {
+          todo.style.display = "flex";
+        }
+        break;
+    }
+  })
 }

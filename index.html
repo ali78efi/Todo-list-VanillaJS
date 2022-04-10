@@ -17,7 +17,7 @@
     <title>Document</title>
   </head>
   <body>
-    <main>
+    <div class="header">
       <form action="">
         <input
           type="text"
@@ -28,10 +28,21 @@
         />
         <input type="submit" value="" id="submit" />
       </form>
+
+      <div class="select">
+        <select name="tasks" class="filter-tasks">
+          <option value="all">All</option>
+          <option value="completed">Completed</option>
+          <option value="uncompleted">Uncompleted</option>
+        </select>
+      </div>
+    </div>
+
+    <main>
       <div class="tasks-container">
         <h1>To-do List</h1>
         <ul class="tasks-list">
-<!-- 
+          <!-- 
           <div class="todo" contentEditable="false">
             <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos soluta, qui mollitia atque culpa quibusdam.</li>
             <div class="task-buttons">

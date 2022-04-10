@@ -16,6 +16,11 @@
     .task-buttons {
         width: 100%;
     }
+
+    .header {
+        flex-flow: column;
+        margin-bottom: 2rem;
+    }
 }
 
 @media screen and (min-width : 768px) {
