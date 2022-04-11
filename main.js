@@ -21,8 +21,17 @@ list.addEventListener('click', (e) => { //active todo buttons(trash check pen )
   action = e.target;
   completeDeleteEdit(action);
 })
+window.addEventListener("keydown", (e) => { // aplly editing tasks with enter key 
+  const div = document.activeElement.parentElement;
+  if (e.key == "Enter" && div.classList.contains("editing")) {
+    editTodo(div);
+  }
+})
 
 filter.addEventListener("click", filterTodo);
+
+
+
 
 function addTodo(todo, isComplete = " ", id=`task${count}`) {
   const todoDiv = document.createElement("div");
@@ -141,7 +150,6 @@ function findCount() {
 
 function filterTodo(event) {
   const tasks = list.childNodes;
-  console.log(tasks);
   tasks.forEach((todo) => {
     switch (event.target.value) {
       case "all":
