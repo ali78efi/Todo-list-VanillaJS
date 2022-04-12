@@ -2,6 +2,7 @@ const list = document.querySelector('.tasks-list'); list.innerHTML = "";
 const input = document.getElementById("todo-input");
 const form = document.querySelector('form');
 const filter = document.querySelector('.filter-tasks');
+const modal = document.querySelector('.modal-container');
 let count = findCount();
 
 form.addEventListener('submit', (e) => { // e= event
@@ -33,7 +34,7 @@ filter.addEventListener("click", filterTodo);
 
 
 
-function addTodo(todo, isComplete = " ", id=`task${count}`) {
+function addTodo(todo, isComplete = " ", id = `task${count}`) {
   const todoDiv = document.createElement("div");
   todoDiv.innerHTML = `
     <li id="${id}" contentEditable="false" >${todo}</li>
@@ -70,7 +71,7 @@ function loadTodo() {
   let todoes = JSON.parse(localStorage.getItem('todo'));
   if (todoes) {
     todoes.forEach((i) => {
-      addTodo(i.task, i.styleStatuses ,i.id);
+      addTodo(i.task, i.styleStatuses, i.id);
     })
   }
 }
@@ -80,16 +81,22 @@ function completeDeleteEdit(action) {
   if (action.classList[0] == "done") {
     completeTodo(todoDiv);
   } else if (action.classList[0] == "delete") {
-    deleteTodo(todoDiv);
+    askDeleteTodo(todoDiv);
   } else if (action.classList[0] == "edit") {
     editTodo(todoDiv);
   }
 }
 
 function deleteTodo(div) {
-  let li = div.children[0].innerText;
+  let todoId = div.children[0].id;
+  console.log(todoId);
   let todoes = JSON.parse(localStorage.getItem("todo"));
-  todoes.splice(todoes.indexOf(li), 1); //remove task from localStorage
+  todoes.forEach((item ,index) => {
+    if (item.id == todoId) {
+      todoes.splice(index, 1);   //remove task from localStorage
+    }
+  })
+
   localStorage.setItem("todo", JSON.stringify(todoes));
   div.remove(); //remove div from page structure
 }
@@ -123,7 +130,7 @@ function editTodo(div) {
     div.children[1].children[0].style.display = "inline-block";
     div.children[1].children[2].style.display = "inline-block";
 
-    todoes.forEach((item,index) => {
+    todoes.forEach((item, index) => {
       if (item.id == todoId) {
         item.task = li;
       }
@@ -143,7 +150,7 @@ function findCount() {
   let c = 0;
   let todoes = JSON.parse(localStorage.getItem('todo'));
   if (todoes != null) {
-     c = todoes.length;
+    c = todoes.length;
   }
   return c;
 }
@@ -169,6 +176,18 @@ function filterTodo(event) {
           todo.style.display = "flex";
         }
         break;
+    }
+  })
+}
+
+function askDeleteTodo(div) {
+  modal.classList.remove("invis");
+  modal.children[0].addEventListener("click", (e) => {
+    if (e.target.classList.contains("yes")) {
+      deleteTodo(div);
+      modal.classList.add("invis");
+    } else if (e.target.classList.contains("no")) {
+      modal.classList.add("invis");
     }
   })
 }
