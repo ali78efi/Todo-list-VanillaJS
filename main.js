@@ -182,6 +182,7 @@ function filterTodo(event) {
 
 function askDeleteTodo(div) {
   modal.classList.remove("invis");
+  modal.children[0].children[1].innerText = `TASK:  ${div.children[0].innerText} `;
   modal.children[0].addEventListener("click", (e) => {
     if (e.target.classList.contains("yes")) {
       deleteTodo(div);

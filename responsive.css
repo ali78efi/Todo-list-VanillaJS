@@ -21,6 +21,15 @@
         flex-flow: column;
         margin-bottom: 2rem;
     }
+    .modal-container .buttons {
+        flex-flow: column;       
+        height: 30%;
+    }
+    .modal-container .buttons button{
+        width: 100%;
+        height: 50%;
+        padding:0;
+    }
 }
 
 @media screen and (min-width : 768px) {
