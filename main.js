@@ -184,11 +184,14 @@ function askDeleteTodo(div) {
   modal.classList.remove("invis");
   modal.children[0].children[1].innerText = `TASK:  ${div.children[0].innerText} `;
   modal.children[0].addEventListener("click", (e) => {
+    e.preventDefault();
     if (e.target.classList.contains("yes")) {
       deleteTodo(div);
       modal.classList.add("invis");
     } else if (e.target.classList.contains("no")) {
       modal.classList.add("invis");
+      div = "";
     }
   })
+
 }
