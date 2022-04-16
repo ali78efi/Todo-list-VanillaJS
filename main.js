@@ -1,4 +1,5 @@
-const list = document.querySelector('.tasks-list'); list.innerHTML = "";
+const list = document.querySelector('.tasks-list');
+list.innerHTML = "";
 const input = document.getElementById("todo-input");
 const form = document.querySelector('form');
 const filter = document.querySelector('.filter-tasks');
@@ -91,9 +92,9 @@ function deleteTodo(div) {
   let todoId = div.children[0].id;
   console.log(todoId);
   let todoes = JSON.parse(localStorage.getItem("todo"));
-  todoes.forEach((item ,index) => {
+  todoes.forEach((item, index) => {
     if (item.id == todoId) {
-      todoes.splice(index, 1);   //remove task from localStorage
+      todoes.splice(index, 1); //remove task from localStorage
     }
   })
 
@@ -149,9 +150,12 @@ function editTodo(div) {
 function findCount() {
   let c = 0;
   let todoes = JSON.parse(localStorage.getItem('todo'));
-  if (todoes != null) {
-    c = todoes.length;
-  }
+  if (todoes)
+    if (todoes.length > 0) {
+      c = todoes[todoes.length - 1].id;
+      c = Number(c.replace(/\D/g, ''));
+      c++;
+    }
   return c;
 }
 
