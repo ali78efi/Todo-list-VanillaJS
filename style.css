@@ -121,7 +121,7 @@ input[type=submit] {
 .task-buttons {
     width: 10%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: stretch;
     min-width: 90px;
     flex-wrap: wrap;
