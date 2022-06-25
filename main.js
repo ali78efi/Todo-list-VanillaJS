@@ -2,8 +2,10 @@ const list = document.querySelector('.tasks-list');
 list.innerHTML = "";
 const input = document.getElementById("todo-input");
 const form = document.querySelector('form');
-const filter = document.querySelector('.filter-tasks');
+const filter = document.querySelector('.filter-tasks-list');
+const filterMobile = document.querySelector('select')
 const modal = document.querySelector('.modal-container');
+
 let count = findCount();
 
 form.addEventListener('submit', (e) => { // e= event
@@ -31,7 +33,7 @@ window.addEventListener("keydown", (e) => { // aplly editing tasks with enter ke
 })
 
 filter.addEventListener("click", filterTodo);
-
+filterMobile.addEventListener("click", filterMobile);
 
 
 
@@ -39,14 +41,14 @@ function addTodo(todo, isComplete = " ", id = `task${count}`) {
   const todoDiv = document.createElement("div");
   todoDiv.innerHTML = `
     <li id="${id}" contentEditable="false" >${todo}</li>
-    <div class="task-buttons">
+    <div class="task-buttons" title="">
       <button class="done">
         <i class="fas fa-check"></i>
       </button>
-      <button class="edit">
+      <button class="edit" title="edit this task">
         <i class="fas fa-pen"></i>
       </button>
-      <button class="delete">
+      <button class="delete" title="delete this task">
         <i class="fas fa-trash"></i>
       </button>
     </div>
@@ -160,6 +162,57 @@ function findCount() {
 }
 
 function filterTodo(event) {
+  if (event.target.classList.contains("option")) {
+
+    for (let i = 0; i < filter.children.length; i++) {
+      filter.children[i].classList.remove("filter-tasks-active")
+    }
+
+    const tasks = list.childNodes;
+    tasks.forEach((todo) => {
+      switch (event.target.innerText) {
+        case "All":
+          event.target.classList.add("filter-tasks-active")
+          todo.style.display = "flex";
+          break;
+        case "Completed":
+          event.target.classList.add("filter-tasks-active")
+          if (todo.classList.contains("complete")) {
+            todo.style.display = "flex";
+          } else {
+            todo.style.display = "none";
+          }
+          break;
+        case "Uncompleted":
+          event.target.classList.add("filter-tasks-active")
+          if (todo.classList.contains("complete")) {
+            todo.style.display = "none";
+          } else {
+            todo.style.display = "flex";
+          }
+          break;
+      }
+    })
+  }
+}
+
+function askDeleteTodo(div) {
+  modal.classList.remove("invis");
+  modal.children[0].children[1].innerText = `TASK:  ${div.children[0].innerText} `;
+  modal.children[0].addEventListener("click", (e) => {
+    e.preventDefault();
+    if (e.target.classList.contains("yes")) {
+      deleteTodo(div);
+      modal.classList.add("invis");
+    } else if (e.target.classList.contains("no")) {
+      modal.classList.add("invis");
+      div = "";
+    }
+  })
+
+}
+
+function filterTodoMobile(event) {
   const tasks = list.childNodes;
   tasks.forEach((todo) => {
     switch (event.target.value) {
@@ -182,20 +235,4 @@ function filterTodo(event) {
         break;
     }
   })
-}
-
-function askDeleteTodo(div) {
-  modal.classList.remove("invis");
-  modal.children[0].children[1].innerText = `TASK:  ${div.children[0].innerText} `;
-  modal.children[0].addEventListener("click", (e) => {
-    e.preventDefault();
-    if (e.target.classList.contains("yes")) {
-      deleteTodo(div);
-      modal.classList.add("invis");
-    } else if (e.target.classList.contains("no")) {
-      modal.classList.add("invis");
-      div = "";
-    }
-  })
-
 }

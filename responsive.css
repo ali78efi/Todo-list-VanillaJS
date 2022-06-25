@@ -1,54 +1,97 @@
 .responsive {
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .todo {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .todo li {
     width: 100%;
-    height: auto;
+  }
+
+  .task-buttons {
+    width: 100%;
+  }
+
+  .header {
+    flex-flow: column;
+    width: 70%;
+  }
+  .modal-container .buttons {
+    height: 30%;
+  }
+  .modal-container .buttons button {
+    width: 40%;
+    height: 100%;
+    padding: 0;
+  }
+  .box {
+    width: 100%;
+    height: 100vh;
+  }
+  .filter-tasks-list {
+    flex-direction: column;
+  }
+  .select-div{
+    display: none;
+  }
+  .select{
+    display: flex;
+  }
+  .modal{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: 25%;
 }
 
-@media screen and (max-width : 768px) {
-    .todo {
-        flex-direction: column;
-        align-items: flex-end;
-    }
+@media screen and (min-width: 768px) {
+  .todo {
+    flex-direction: column;
+    align-items: flex-end;
+  }
 
-    .todo li {
-        width: 100%;
-    }
+  .todo li {
+    width: 100%;
+  }
 
-    .task-buttons {
-        width: 100%;
-    }
+  .task-buttons {
+  }
 
-    .header {
-        flex-flow: column;
-        margin-bottom: 2rem;
-    }
-    .modal-container .buttons {
-        flex-flow: column;       
-        height: 30%;
-    }
-    .modal-container .buttons button{
-        width: 100%;
-        height: 50%;
-        padding:0;
-    }
 }
 
-@media screen and (min-width : 768px) {
-    .todo {
-        flex-direction: column;
-        align-items: flex-end;
-    }
-
-    .todo li {
-        width: 100%;
-    }
-
-    .task-buttons {}
+@media screen and (min-width: 992px) {
+  .task-buttons {
+  }
+  .tasks-container::-webkit-scrollbar {
+    width: 10px;
+  }
+  .tasks-container::-webkit-scrollbar-track {
+    background-color: inherit;
+    border-radius: 2rem;
+  }
+  .tasks-container::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.871);
+    border-radius: 2rem;
+  }
 }
 
-@media screen and (min-width : 992px) {
-    .task-buttons {}
-}
-
-@media screen and (min-width : 1200px) {
-    .task-buttons {}
+@media screen and (min-width: 1200px) {
+  .task-buttons {
+  }
+  .tasks-container::-webkit-scrollbar {
+    width: 10px;
+  }
+  .tasks-container::-webkit-scrollbar-track {
+    background-color: inherit;
+    border-radius: 2rem;
+  }
+  .tasks-container::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.871);
+    border-radius: 2rem;
+  }
 }

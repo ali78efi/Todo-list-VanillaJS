@@ -1,76 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="responsive.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="header">
-      <form action="">
-        <input
-          type="text"
-          name=""
-          id="todo-input"
-          placeholder="New Todo"
-          autofocus
-        />
-        <input type="submit" value="" id="submit" />
-      </form>
 
-      <div class="select">
-        <select name="tasks" class="filter-tasks">
-          <option value="all">All</option>
-          <option value="completed">Completed</option>
-          <option value="uncompleted">Uncompleted</option>
-        </select>
-      </div>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="responsive.css" />
+  <title>Document</title>
+</head>
 
+<body>
+  <div class="box">
+    <h1>To-do List</h1>
     <main>
+      <div class="header">
+        <form action="">
+          <input type="text" name="" id="todo-input" placeholder="New Todo" autofocus />
+          <input type="submit" value="" id="submit" />
+        </form>
+        <div class="select">
+          <select name="tasks" class="filter-tasks">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="uncompleted">Uncompleted</option>
+          </select>
+        </div>
+        <div class="select-div">
+          <ul class="filter-tasks-list">
+            <li class="option filter-tasks-active">All</li>
+            <li class="option ">Completed</li>
+            <li class="option ">Uncompleted</li>
+          </ul>
+        </div>
+      </div>
+
       <div class="tasks-container">
-        <h1>To-do List</h1>
-        <ul class="tasks-list">
+        <ul class="tasks-list" id="list">
           <!-- 
-          <div class="todo" contentEditable="false">
-            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos soluta, qui mollitia atque culpa quibusdam.</li>
-            <div class="task-buttons">
-              <button>
-                <i class="fas fa-check"></i>
-              </button>
-              <button>
-                <i class="fas fa-pen"></i>
-              </button>
+              <div class="todo" contentEditable="false">
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos soluta, qui mollitia atque culpa quibusdam.</li>
+                <div class="task-buttons">
+                  <button>
+                    <i class="fas fa-check"></i>
+                  </button>
+                  <button>
+                    <i class="fas fa-pen"></i>
+                  </button>
               <button>
                 <i class="fas fa-trash"></i>
               </button>
             </div>
           </div>
-           -->
+        -->
         </ul>
       </div>
     </main>
-    <div class="modal-container invis">
-      <div class="modal">
-        <h4>Do you want to delete this task?</h4>
-        <p></p>
-        <div class="buttons">
-          <button class="yes">yes</button>
-          <button class="no">no</button>
-        </div>
+  </div>
+  <div class="modal-container invis">
+    <div class="modal">
+      <h4>Do you want to delete this task?</h4>
+      <p></p>
+      <div class="buttons">
+        <button class="yes">yes</button>
+        <button class="no">no</button>
       </div>
-      </div>
-    <script src="./main.js"></script>
-  </body>
+    </div>
+  </div>
+  <script src="./main.js"></script>
+
+</body>
+
 </html>
