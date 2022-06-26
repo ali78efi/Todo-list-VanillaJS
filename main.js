@@ -1,3 +1,4 @@
+fixMobileHeight();
 const list = document.querySelector('.tasks-list');
 list.innerHTML = "";
 const input = document.getElementById("todo-input");
@@ -235,4 +236,8 @@ function filterTodoMobile(event) {
         break;
     }
   })
+}
+
+function fixMobileHeight() {
+  document.documentElement.style.setProperty('--visual-height',`${visualViewport.height}px`);
 }
