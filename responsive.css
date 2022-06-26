@@ -10,7 +10,7 @@
     font-size: 12px;
   }
   body {
-    min-height: var(--visual-height)!important;
+    min-height: var(--visual-height) !important;
     max-height: var(--visual-height) !important;
   }
   .todo {
@@ -39,8 +39,8 @@
     padding: 0;
   }
   .box {
-    width: 100%;
-    height: var(--visual-height);
+    width: 90%;
+    height: 85%;
   }
   .filter-tasks-list {
     flex-direction: column;
