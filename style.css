@@ -313,10 +313,9 @@ input[type="submit"] {
   justify-content: space-between;
   align-items: center;
   height: 40%;
-  min-width: 6rem;
+  width: 70%;
   display: none;
   /* background: #000; */
-  width: 40%;
   position: relative;
   overflow: hidden;
   border-radius: 0.5rem;
@@ -325,6 +324,7 @@ input[type="submit"] {
 .select::after {
   content: "\25BC";
   position: absolute;
+  height: 100%;
   top: 0;
   right: 0;
   padding: 1rem;
@@ -335,7 +335,7 @@ input[type="submit"] {
   text-shadow: 0 0 3px black;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.414);
 }
-select{
+select {
   width: 50%;
   background-color: #fff;
   -webkit-appearance: none;
@@ -354,7 +354,7 @@ select{
   height: 100%;
   outline-style: none;
   cursor: pointer;
-  padding-left: .5rem;
+  padding-left: 0.5rem;
   font-weight: bold;
   border: none;
   border-radius: 0.5rem;
