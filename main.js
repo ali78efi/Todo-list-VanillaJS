@@ -3,7 +3,7 @@ list.innerHTML = "";
 const input = document.getElementById("todo-input");
 const form = document.querySelector('form');
 const filter = document.querySelector('.filter-tasks-list');
-const filterMobile = document.querySelector('select')
+const filterMobile = document.querySelector('.filter-tasks');
 const modal = document.querySelector('.modal-container');
 
 let count = findCount();
@@ -33,7 +33,7 @@ window.addEventListener("keydown", (e) => { // aplly editing tasks with enter ke
 })
 
 filter.addEventListener("click", filterTodo);
-filterMobile.addEventListener("click", filterMobile);
+filterMobile.addEventListener("click", filterTodoMobile);
 
 
 
