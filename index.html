@@ -15,12 +15,12 @@
 
 <body>
   <div class="box">
-    <h1>To-do List</h1>
+    <h1 class="unselectable">To-do List</h1>
     <main>
       <div class="header">
         <form action="">
-          <input type="text" name="" id="todo-input" placeholder="New Todo" autofocus />
-          <input type="submit" value="" id="submit" />
+          <input type="text" name="" class="unselectable" id="todo-input" placeholder="New Todo" autofocus  />
+          <input type="submit" value="add" id="submit" />
         </form>
         <div class="select">
           <select name="tasks" class="filter-tasks">
@@ -29,11 +29,11 @@
             <option value="uncompleted">Uncompleted</option>
           </select>
         </div>
-        <div class="select-div">
-          <ul class="filter-tasks-list">
-            <li class="option filter-tasks-active">All</li>
-            <li class="option ">Completed</li>
-            <li class="option ">Uncompleted</li>
+        <div class="select-div unselectable">
+          <ul class="filter-tasks-list unselectable">
+            <li class="option filter-tasks-active unselectable">All</li>
+            <li class="option unselectable">Completed</li>
+            <li class="option unselectable">Uncompleted</li>
           </ul>
         </div>
       </div>
