@@ -4,9 +4,11 @@
   padding: 0;
   list-style-type: none;
 }
-
+:root {
+  --visual-height: 100vh;
+}
 body {
-  min-height: 100vh;
+  min-height: var(--visual-height);
   background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
   background-repeat: no-repeat;
   display: flex;
@@ -197,7 +199,7 @@ input[type="submit"] {
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: 100vh;
+  height: var(--visual-height);
   position: absolute;
   top: 0;
   right: 0;

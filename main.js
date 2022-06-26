@@ -239,5 +239,5 @@ function filterTodoMobile(event) {
 }
 
 function fixMobileHeight() {
-  document.documentElement.style.setProperty('--visual-height',`${visualViewport.height}px`);
+  document.documentElement.style.setProperty('--visual-height', `${visualViewport.height}px`);
 }
