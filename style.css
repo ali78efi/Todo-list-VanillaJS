@@ -8,7 +8,7 @@
   --visual-height: 100vh;
 }
 body {
-  min-height: var(--visual-height);
+  min-height: 100vh;
   background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%);
   background-repeat: no-repeat;
   display: flex;
