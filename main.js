@@ -55,7 +55,7 @@ function addTodo(todo, isComplete = " ", id = `task${count}`) {
     `;
   todoDiv.classList.add('todo');
   todoDiv.classList.add(isComplete);
-  list.appendChild(todoDiv);
+  list.insertBefore(todoDiv, list.firstChild);
 }
 
 function saveTodo(todo) {
