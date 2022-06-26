@@ -34,7 +34,7 @@ window.addEventListener("keydown", (e) => { // aplly editing tasks with enter ke
 })
 
 filter.addEventListener("click", filterTodo);
-filterMobile.addEventListener("click", filterTodoMobile);
+filterMobile.addEventListener("change", filterTodoMobile);
 
 
 
