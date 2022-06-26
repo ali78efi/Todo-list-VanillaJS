@@ -4,6 +4,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
   .todo {
     flex-direction: column;
     align-items: flex-end;
@@ -36,18 +39,18 @@
   .filter-tasks-list {
     flex-direction: column;
   }
-  .select-div{
+  .select-div {
     display: none;
   }
-  .select{
+  .select {
     display: flex;
   }
-  .modal{
+  .modal {
     width: 100%;
     position: fixed;
     bottom: 0;
     height: 25%;
-}
+  }
 }
 @media screen and (min-width: 768px) {
   .todo {
@@ -61,7 +64,6 @@
 
   .task-buttons {
   }
-
 }
 
 @media screen and (min-width: 992px) {
@@ -93,5 +95,11 @@
   .tasks-container::-webkit-scrollbar-thumb {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.871);
     border-radius: 2rem;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  h1 {
+    font-size: 2rem;
   }
 }
