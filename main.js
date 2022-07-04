@@ -19,7 +19,8 @@ form.addEventListener('submit', (e) => { // e= event
 
 window.addEventListener('DOMContentLoaded', (e) => { //load tasks from local storage and render them in page loading 
   loadTodo();
-})
+});
+window.addEventListener('resize', fixMobileHeight)
 
 
 list.addEventListener('click', (e) => { //active todo buttons(trash check pen ) 
