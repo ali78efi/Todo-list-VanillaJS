@@ -11,10 +11,12 @@ let count = findCount();
 
 form.addEventListener('submit', (e) => { // e= event
   e.preventDefault(); // prevent submit action from refreshing the page
-  addTodo(input.value); //rendering task in the tasks list 
-  saveTodo(input.value);
-  input.value = ''; //clear input for the next todo 
-  count++;
+  if (input.value) {
+    addTodo(input.value); //rendering task in the tasks list 
+    saveTodo(input.value);
+    input.value = ''; //clear input for the next todo 
+    count++;
+  }
 });
 
 window.addEventListener('DOMContentLoaded', (e) => { //load tasks from local storage and render them in page loading 
